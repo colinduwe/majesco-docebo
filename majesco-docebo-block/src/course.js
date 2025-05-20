@@ -10,13 +10,20 @@ const Course = ({ course }) => {
 	const articleTypeClass = course.meta.item_type == 'learning_plan' ? 'is-course-type-learning_plan' : 'is-course-type-elearning';
 	const articleTypeClasses = ['is-style-pill', articleTypeClass];
 
+	// Function to decode HTML entities
+	const decodeHtmlEntities = (text) => {
+		const textarea = document.createElement('textarea');
+		textarea.innerHTML = text;
+		return textarea.value;
+	};
+
 	return (
 		<div className={'col'}>
 			<article className={articleClasses.join(' ')} id={articleId}>
 				<div className={'card-body'}>
 					<header className={'entry-header'}>
 						<h5 className={articleTypeClasses.join(' ')}>{articleType}</h5>
-						<h3 className={'entry-title card-title'}>{course.title.rendered}</h3>
+						<h3 className={'entry-title card-title'} dangerouslySetInnerHTML={{ __html: decodeHtmlEntities(course.title.rendered) }} />
 					</header>
 					<div className={'entry-content card-text'}>
 						<div className={'info-pills'}>

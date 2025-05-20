@@ -1,0 +1,59 @@
+#majesco-docebo-courses-group {
+	padding-top: 5rem;
+}
+h4#majesco-docebo-courses-group-h4{
+	margin-bottom: 1rem;
+}
+p#majesco-docebo-courses-group-p{
+	margin-bottom: 2.5rem;
+}
+
+.wp-block-majesco-docebo-majesco-docebo-block .gray-background-behind-cards{
+	padding-top: 0;
+}
+
+.is-style-pill.is-course-type-elearning{
+	background-color: var(--wp--preset--color--secondary) !important;
+}
+.is-style-pill.is-course-type-learning_plan{
+	background-color: var(--bs-periwinkle) !important;
+}
+.is-style-pill.course-count{
+	background-color: transparent;
+	border: 1px solid var(--bs-gray-500);
+}
+.is-style-pill.course-price{
+	background-color: var(--bs-gray-200);
+	border-color: var(--bs-gray-200);
+}
+.majesco-content-card.type-majesco_course h5.is-style-pill{
+	font-weight: 400;
+}
+.majesco-content-card.type-majesco_course{
+	.is-style-pill.is-course-type-elearning,
+	.is-style-pill.is-course-type-learning_plan{
+		margin-bottom: 1.5rem;
+	}
+	h3{
+		margin-bottom: 1rem;
+	}
+
+}
+
+// Modal
+#majesco_course-modal{
+	.modal-header{
+		padding-top: 2.5rem;
+	}
+	.modal-body > .row{
+		padding-top: 2.5rem;
+		padding-bottom: 4rem;
+		h5.is-style-pill{
+			font-weight: 400;
+		}
+		.col-md-5 > h3,
+		.col-md-5 > .wp-block-buttons{
+			margin-bottom: 2rem;
+		}
+	}
+}

@@ -13,6 +13,7 @@
   },
   "textdomain": "majesco-docebo-block",
   "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
   "render": "file:./render.php",
   "script": "file:./view.js"
 }

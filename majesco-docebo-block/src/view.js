@@ -1,8 +1,6 @@
 import 'bootstrap/js/src/util';
 import 'bootstrap/js/src/modal';
 
-var courseModal = document.getElementById('majesco_course-modal')
-
 function getAdjacentCards(card, postType){
 	let adjacentCards = {
 		'nextID': null,
@@ -75,10 +73,30 @@ function loadCardIntoModal(card){
 	httpRequest.send('action=majesco_docebo_ajax_modals&data=' + JSON.stringify( data ) + '&nonce=' + nonce);
 }
 
-if( courseModal != null ){
-	courseModal.addEventListener('show.bs.modal', function (event) {
-		  // Button that triggered the modal
-		  var course = event.relatedTarget
-		  loadCardIntoModal(course);
-	})
+// Initialize modal functionality when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+	initializeModal();
+});
+
+// Also handle cases where content might be loaded dynamically
+document.addEventListener('majescoDoceboContentLoaded', function() {
+	initializeModal();
+});
+
+function initializeModal() {
+	const courseModal = document.getElementById('majesco_course-modal');
+	
+	if (courseModal) {
+		// Remove any existing listeners to prevent duplicates
+		courseModal.removeEventListener('show.bs.modal', handleModalShow);
+		// Add the event listener
+		courseModal.addEventListener('show.bs.modal', handleModalShow);
+	}
+}
+
+function handleModalShow(event) {
+	const course = event.relatedTarget;
+	if (course) {
+		loadCardIntoModal(course);
+	}
 }

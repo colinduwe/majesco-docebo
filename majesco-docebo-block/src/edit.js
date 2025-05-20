@@ -35,6 +35,8 @@ export default function Edit() {
 	const fetchedCourses = useSelect((select) => {
 		return select('core').getEntityRecords('postType', 'majesco_course', {
 			per_page: -1,
+			orderby: 'title',
+			order: 'asc',
 			_embed: true
 		});
 	});
